@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function(){
+  return view('about');
+});
+
+Route::get('/how-does-it-work', function(){
+  return view('how-does-it-work');
+});
+
+Route::get('/food-categories', 'FoodCategoryController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

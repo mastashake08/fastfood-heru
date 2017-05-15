@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateResturantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('resturants', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('food_category_id')->unsigned();
+            $table->foreign('food_category_id')->references('id')->on('food_categories')->onDelete('cascade');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('type')->default('customer');
-            $table->rememberToken();
+            $table->string('address');
+            $table->string('phone');
+            $table->string('photo');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('resturants');
     }
 }
