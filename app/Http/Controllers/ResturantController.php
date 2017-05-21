@@ -74,6 +74,9 @@ class ResturantController extends Controller
     public function show($id)
     {
         //
+        return view('resturant.individual')->with([
+          'resturant' => Resturant::findOrFail($id)
+        ]);
     }
 
     /**

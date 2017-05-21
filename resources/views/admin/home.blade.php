@@ -58,8 +58,8 @@
                       <tbody>
                         @foreach($resturants as $resturant)
                         <tr>
-                          <td><img class="img-responsive img-rounded" src="{{$resturant->photo}}"/></td>
-                          <td>{{$resturant->name}}</td>
+                          <td><img width="250" height="250" class="img-responsive img-rounded" src="{{$resturant->photo}}"/></td>
+                          <td><a href="{{url('/resturant/'.$resturant->id)}}" target="_blank">{{$resturant->name}}</a></td>
                           <td>{{$resturant->address}}</td>
                           <td>{{$resturant->phone}}</td>
                           <td>{{$resturant->category->name}}</td>
