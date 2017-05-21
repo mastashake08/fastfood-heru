@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Resturant;
+use Illuminate\Support\Facades\Storage;
 class ResturantController extends Controller
 {
     /**
@@ -24,6 +25,12 @@ class ResturantController extends Controller
     public function create()
     {
         //
+        if(auth()->user()->can('create',Resturant::class)){
+          return view('resturant.create');
+        }
+        else{
+          abort(401);
+        }
     }
 
     /**
@@ -35,6 +42,27 @@ class ResturantController extends Controller
     public function store(Request $request)
     {
         //
+
+        if(auth()->user()->can('create',Resturant::class)){
+          $this->validate($request,[
+            'address' => 'required',
+            'phone' => 'required',
+            'name' => 'required',
+            'photo' => 'required'
+          ]);
+          $path = $request->file('photo')->store('public');
+          $resturant = Resturant::Create([
+            'name' => $request->name,
+            'photo' => Storage::url($path),
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'food_category_id' => $request->food_category_id
+          ]);
+          return redirect('/home');
+        }
+        else{
+          abort(401);
+        }
     }
 
     /**
@@ -80,5 +108,13 @@ class ResturantController extends Controller
     public function destroy($id)
     {
         //
+        $resturant = Resturant::findOrFail($id);
+        if(auth()->user()->can('delete',$resturant)){
+          $resturant->delete();
+          return back();
+        }
+        else{
+          abort(401);
+        }
     }
 }

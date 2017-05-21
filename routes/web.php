@@ -23,7 +23,8 @@ Route::get('/how-does-it-work', function(){
   return view('how-does-it-work');
 });
 
-Route::get('/food-categories', 'FoodCategoryController@index');
+Route::resource('category', 'FoodCategoryController');
+Route::resource('resturant', 'ResturantController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

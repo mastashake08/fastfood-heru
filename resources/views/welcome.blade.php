@@ -85,7 +85,7 @@
                 <div class="links">
                     <a href="{{url('/about')}}">About</a>
                     <a href="{{url('/how-does-it-work')}}">How Does It Work</a>
-                    <a href="{{url('/food-categories')}}">Food Categories</a>
+                    <a href="{{url('/category')}}">Food Categories</a>
                 </div>
             </div>
         </div>

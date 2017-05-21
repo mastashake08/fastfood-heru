@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\FoodCategory as Category;
+use Illuminate\Support\Facades\Storage;
 class FoodCategoryController extends Controller
 {
     /**
@@ -14,6 +15,7 @@ class FoodCategoryController extends Controller
     public function index()
     {
         //
+        return Category::paginate(5);
     }
 
     /**
@@ -24,6 +26,12 @@ class FoodCategoryController extends Controller
     public function create()
     {
         //
+        if(auth()->user()->can('create',Category::class)){
+          return view('category.create');
+        }
+        else{
+          abort(401);
+        }
     }
 
     /**
@@ -35,6 +43,21 @@ class FoodCategoryController extends Controller
     public function store(Request $request)
     {
         //
+        if(auth()->user()->can('create',Category::class)){
+        $this->validate($request,[
+          'name' => 'required',
+          'photo' => 'required|file'
+        ]);
+        $path = $request->file('photo')->store('public');
+        $category = Category::Create([
+          'name' => $request->name,
+          'photo' => Storage::url($path)
+        ]);
+        return redirect('/home');
+      }
+      else{
+        abort(401);
+      }
     }
 
     /**
@@ -80,5 +103,13 @@ class FoodCategoryController extends Controller
     public function destroy($id)
     {
         //
+        $category = Category::findOrFail($id);
+        if(auth()->user()->can('delete', $category)){
+          $category->delete();
+          return back();
+        }
+        else{
+          abort(401);
+        }
     }
 }

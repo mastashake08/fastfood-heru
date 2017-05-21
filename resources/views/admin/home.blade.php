@@ -13,13 +13,21 @@
                         <tr>
                           <th>Photo</th>
                           <th>Name</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
                         @foreach($categories as $category)
                         <tr>
-                          <td><img class="img-responsive img-rounded" src="{{$category->photo}}"/></td>
+                          <td><img width="250" height="250" class="img-responsive img-rounded" src="{{$category->photo}}"/></td>
                           <td>{{$category->name}}</td>
+                          <td>
+                            <form  action="{{ url('/category/'.$category->id) }}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              {{ csrf_field() }}
+                              <button class="btn btn-danger btn-sm">Delete</button>
+                          </form>
+                        </td>
                         </tr>
                         @endforeach
                       </tbody>
@@ -44,6 +52,7 @@
                           <th>Address</th>
                           <th>Phone</th>
                           <th>Food Category</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -54,6 +63,13 @@
                           <td>{{$resturant->address}}</td>
                           <td>{{$resturant->phone}}</td>
                           <td>{{$resturant->category->name}}</td>
+                          <td>
+                            <form  action="{{ url('/resturant/'.$resturant->id) }}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              {{ csrf_field() }}
+                              <button class="btn btn-danger btn-sm">Delete</button>
+                          </form>
+                        </td>
                         </tr>
                         @endforeach
                       </tbody>
