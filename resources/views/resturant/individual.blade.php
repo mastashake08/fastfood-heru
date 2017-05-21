@@ -7,11 +7,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{$resturant->name}}</div>
                 <div class="panel-body">
-                    <img src="{{$resturant->photo}}" class="img img-rounded text-center" width="250" height="250"/>
+                  <div class="text-center">
+                    <img src="{{$resturant->photo}}" class="img img-rounded" width="250" height="250"/>
+
                     <br>
                     Address: <address><strong>{{$resturant->address}}</strong></address>
                     <br>
                     Phone: <a href="tel:{{$resturant->phone}}">{{$resturant->phone}}</a>
+                    </div>
                     @can('create',App\Resturant::class)
                     <table class="table">
                       <thead>
@@ -50,7 +53,7 @@
                           <td>{{$item->name}}</td>
                           <td>{{$item->description}}</td>
                           <td>${{$item->price}}</td>
-                          <td><input type="number" min="0" name="order[{{$item->name}}]"/></td>
+                          <td><input type="number" min="0" name="order[{{$item->id}}]"/></td>
                         </tr>
                         @endforeach
                       </tbody>

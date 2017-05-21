@@ -83,6 +83,22 @@ class OrderController extends Controller
     }
 
     public function placeOrder(Request $request){
+      $price=0;
+      $message = '';
+      foreach($request->order as $key => $value){
+        $item = \App\MenuItem::findOrFail($key);
+        $price += $item->price * $value;
+        $message .=  "{$item->name} x {$value} \n";
+      }
+      $with = [
+        'price' => $price,
+        'message' => nl2br($message)
+      ];
+      setlocale(LC_MONETARY, 'en_US.UTF-8');
+      return view('confirm-order')->with($with);
+    }
+
+    public function charge(Request $request){
       dd($request->all());
     }
 }
