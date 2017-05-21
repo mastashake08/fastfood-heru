@@ -1,0 +1,68 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Categories</div>
+
+                <div class="panel-body">
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Photo</th>
+                          <th>Name</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($categories as $category)
+                        <tr>
+                          <td><img class="img-responsive img-rounded" src="{{$category->photo}}"/></td>
+                          <td>{{$category->name}}</td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                      {!! $categories->links()!!}
+                    </table>
+                    <a href="{{url('/category/create')}}" class="btn btn-success">Add New Category</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Resturants</div>
+
+                <div class="panel-body">
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Photo</th>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>Phone</th>
+                          <th>Food Category</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($resturants as $resturant)
+                        <tr>
+                          <td><img class="img-responsive img-rounded" src="{{$resturant->photo}}"/></td>
+                          <td>{{$resturant->name}}</td>
+                          <td>{{$resturant->address}}</td>
+                          <td>{{$resturant->phone}}</td>
+                          <td>{{$resturant->category->name}}</td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                      {!! $resturants->links()!!}
+                    </table>
+                    <a href="{{url('/resturant/create')}}" class="btn btn-success">Add New Resturant</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

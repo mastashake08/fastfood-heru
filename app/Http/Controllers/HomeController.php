@@ -23,6 +23,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(auth()->user()->type == 'admin'){
+          $with = [
+            'categories' => \App\FoodCategory::paginate(10),
+            'resturants' => \App\Resturant::paginate(10)
+          ];
+          return view('admin.home')->with($with);
+        }
+        else{
+          $with = [
+            'categories' => \App\FoodCategory::paginate(10)
+          ];
+          return view('customer.home')->with($with);
+        }
     }
 }
