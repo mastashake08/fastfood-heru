@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\MenuItem;
-class MenuItemController extends Controller
+
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,19 +34,7 @@ class MenuItemController extends Controller
      */
     public function store(Request $request)
     {
-        //(
-        if($request->user()->can('create', \App\Resturant::class)){
-          $this->validate($request,[
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required'
-          ]);
-          MenuItem::Create($request->all());
-          return back();
-        }
-        else{
-          abort(401);
-        }
+        //
     }
 
     /**
@@ -92,5 +80,9 @@ class MenuItemController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function placeOrder(Request $request){
+      dd($request->all());
     }
 }

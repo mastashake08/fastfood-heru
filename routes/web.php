@@ -25,6 +25,8 @@ Route::get('/how-does-it-work', function(){
 
 Route::resource('category', 'FoodCategoryController');
 Route::resource('resturant', 'ResturantController');
+Route::resource('menu-item', 'MenuItemController');
+Route::post('place-order','OrderController@placeOrder');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
