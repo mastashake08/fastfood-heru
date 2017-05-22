@@ -14,11 +14,13 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+                background-image: url('/img/home_slide_image1.png');
+                background-size: cover;
             }
 
             .full-height {
@@ -50,9 +52,9 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 18px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -79,13 +81,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{config('app.name')}}
+                    <strong>{{config('app.name')}}</strong>
                 </div>
 
                 <div class="links">
-                    <a href="{{url('/about')}}">About</a>
-                    <a href="{{url('/how-does-it-work')}}">How Does It Work</a>
-                    <a href="{{url('/category')}}">Food Categories</a>
+                    <a href="{{url('/about')}}"><strong>About</strong></a>
+                    <a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a>
+                    <a href="{{url('/category')}}"><strong>Food Categories</strong></a>
                 </div>
             </div>
         </div>
