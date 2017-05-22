@@ -13,6 +13,7 @@
                     <a href="{{url('/category/'.$category->id)}}"><img src="{{$category->photo}}" width="250" height="250" class="img img-rounded"/></a>
                     <hr>
                     @endforeach
+                    {!!$categories->links()!!}
                   </div>
 
                 </div>
