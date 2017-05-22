@@ -15,7 +15,11 @@ class FoodCategoryController extends Controller
     public function index()
     {
         //
-        return Category::paginate(5);
+        $categories = Category::paginate(5);
+        $with = [
+          'categories' => $categories
+        ];
+        return view('category.all')->with($with);
     }
 
     /**
@@ -69,6 +73,11 @@ class FoodCategoryController extends Controller
     public function show($id)
     {
         //
+        $category = Category::findOrFail($id);
+        $with = [
+          'category' => $category
+        ];
+        return view('category.individual')->with($with);
     }
 
     /**

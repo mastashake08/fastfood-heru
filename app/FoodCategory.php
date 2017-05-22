@@ -9,6 +9,6 @@ class FoodCategory extends Model
     //
     protected $fillable = ['name', 'photo'];
     public function resturants(){
-      return $this->hasMany('App/Resturant');
+      return $this->hasMany('App\Resturant');
     }
 }
