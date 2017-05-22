@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Notifications\Notifiable;
 class Resturant extends Model
 {
+  use notifiable;
     //
     protected $guarded = [];
     public function category(){

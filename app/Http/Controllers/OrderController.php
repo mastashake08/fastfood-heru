@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+
+    public function __construct(){
+      setlocale(LC_MONETARY, 'en_US.UTF-8');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -85,20 +89,52 @@ class OrderController extends Controller
     public function placeOrder(Request $request){
       $price=0;
       $message = '';
+      $resturant = null;
       foreach($request->order as $key => $value){
         $item = \App\MenuItem::findOrFail($key);
         $price += $item->price * $value;
         $message .=  "{$item->name} x {$value} \n";
+        $resturant = $item->resturant;
       }
       $with = [
         'price' => $price,
-        'message' => nl2br($message)
+        'message' => $message,
+        'resturant' => $resturant
       ];
-      setlocale(LC_MONETARY, 'en_US.UTF-8');
+
       return view('confirm-order')->with($with);
     }
 
     public function charge(Request $request){
-      dd($request->all());
+      // Set your secret key: remember to change this to your live secret key in production
+// See your keys here: https://dashboard.stripe.com/account/apikeys
+\Stripe\Stripe::setApiKey("sk_test_2wAB7U1tV7lDLqyj8hkjwXFI");
+
+// Token is created using Stripe.js or Checkout!
+// Get the payment token submitted by the form:
+$token = $request->input('reservation.stripe_token');
+
+// Charge the user's card:
+$charge = \Stripe\Charge::create(array(
+  "amount" => $request->price * 100,
+  "currency" => "usd",
+  "description" => $request->message,
+  "metadata" => [
+    'address' => $request->address,
+    'resturant_id' => $request->resturant
+  ],
+  "source" => $token,
+));
+// notify admins
+$admins = \App\User::where('type','admin')->get();
+$admins->each(function($item,$value) use($charge){
+  $item->notify(new \App\Notifications\NewOrder($charge));
+});
+$resturant = \App\Resturant::find($request->resturant);
+$resturant->notify(new \App\Notifications\NewOrder($charge));
+$with = [
+  'charge' => $charge
+];
+return view('order-success')->with($with);
     }
 }
