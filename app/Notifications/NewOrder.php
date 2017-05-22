@@ -6,11 +6,13 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use NotificationChannels\Twilio\TwilioChannel;
+use NotificationChannels\Twilio\TwilioSmsMessage;
 
 class NewOrder extends Notification
 {
     use Queueable;
-
+    public $charge;
     /**
      * Create a new notification instance.
      *
@@ -19,6 +21,7 @@ class NewOrder extends Notification
     public function __construct(\Stripe\Charge $charge)
     {
         //
+        $this->charge = $charge;
     }
 
     /**
@@ -29,7 +32,7 @@ class NewOrder extends Notification
      */
     public function via($notifiable)
     {
-        //return ['mail'];
+        return ['mail'];
     }
 
     /**
@@ -41,9 +44,13 @@ class NewOrder extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('New Order')
+                    ->greeting('Hello')
+                    ->line('New order has been placed.')
+                    ->line($this->charge->description)
+                    ->line($this->charge->metadata['address']);
+                    //->action('Notification Action', url('/'))
+                    //->line('Thank you for using our application!');
     }
 
     /**
