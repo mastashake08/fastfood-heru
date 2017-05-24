@@ -43,11 +43,13 @@ class NewOrder extends Notification
      */
     public function toMail($notifiable)
     {
+        $resturant  = \App\Resturant::find($this->charge->metadata["resturant_id"]);
         return (new MailMessage)
                     ->subject('New Order')
                     ->greeting('Hello')
                     ->line('New order has been placed.')
                     ->line($this->charge->description)
+                    ->line("Pickup at {$resturant->name} {$resturant->address} {$resturant->phone}")
                     ->line($this->charge->metadata['address']);
                     //->action('Notification Action', url('/'))
                     //->line('Thank you for using our application!');

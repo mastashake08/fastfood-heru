@@ -52,8 +52,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
+                            <label for="category" class="col-md-4 control-label">Category</label>
 
                             <div class="col-md-6">
                                 <select id="food_category_id" name="food_category_id">

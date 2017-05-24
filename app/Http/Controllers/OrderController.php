@@ -133,7 +133,8 @@ $admins->each(function($item,$value) use($charge){
 $resturant = \App\Resturant::find($request->resturant);
 $resturant->notify(new \App\Notifications\NewOrder($charge));
 $with = [
-  'charge' => $charge
+  'charge' => $charge,
+  'resturant' => $resturant
 ];
 return view('order-success')->with($with);
     }
