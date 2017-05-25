@@ -19,17 +19,28 @@
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>Photo</th>
                           <th>Name</th>
                           <th>Description</th>
                           <th>Price</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
                         @foreach($resturant->items as $item)
                         <tr>
+                          <td><img src="{{$resturant->photo}}" class="img img-responsive img-rounded" height="100" width="100"/></td>
                           <td>{{$item->name}}</td>
                           <td>{{$item->description}}</td>
                           <td>${{$item->price}}</td>
+                          <td>
+                            <a href="{{url('/menu-item/'.$item->id.'/edit')}}" class="btn btn-sm btn-info">Edit Item</a>
+                            <form  action="{{ url('/menu-item/'.$item->id) }}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              {{ csrf_field() }}
+                              <button class="btn btn-danger btn-sm">Delete</button>
+                          </form>
+                          </td>
                         </tr>
                         @endforeach
                       </tbody>
@@ -102,6 +113,20 @@
                                 @if ($errors->has('price'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('price') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
+                            <label for="photo" class="col-md-4 control-label">Photo</label>
+
+                            <div class="col-md-6">
+                                <input id="photo" type="file" class="form-control" name="photo"  required autofocus>
+
+                                @if ($errors->has('photo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('photo') }}</strong>
                                     </span>
                                 @endif
                             </div>

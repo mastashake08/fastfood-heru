@@ -89,6 +89,11 @@ class FoodCategoryController extends Controller
     public function edit($id)
     {
         //
+        $category = Category::findOrFail($id);
+        $with = [
+          'category' => $category
+        ];
+        return view('category.edit')->with($with);
     }
 
     /**
@@ -101,6 +106,33 @@ class FoodCategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //
+        $category = Category::findOrFail($id);
+        if(auth()->user()->can('create',Category::class)){
+        $this->validate($request,[
+          'name' => 'required',
+        ]);
+        if($request->hasFile('photo')){
+          $path = $request->file('photo')->store('public');
+          $category->fill([
+            'name' => $request->name,
+            'photo' => Storage::url($path)
+          ]);
+          $category->save();
+        }
+        else{
+          $category->fill([
+            'name' => $request->name,
+          ]);
+          $category->save();
+        }
+
+
+        return redirect('/home');
+      }
+      else{
+        abort(401);
+      }
     }
 
     /**

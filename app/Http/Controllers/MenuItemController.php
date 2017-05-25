@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MenuItem;
+use Illuminate\Support\Facades\Storage;
 class MenuItemController extends Controller
 {
     /**
@@ -39,9 +40,17 @@ class MenuItemController extends Controller
           $this->validate($request,[
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'photo' => 'required'
           ]);
-          MenuItem::Create($request->all());
+          $path = $request->file('photo')->store('public');
+          MenuItem::Create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'photo' => Storage::url($path),
+            'resturant_id' => $request->resturant_id
+          ]);
           return back();
         }
         else{
@@ -69,6 +78,10 @@ class MenuItemController extends Controller
     public function edit($id)
     {
         //
+        $item = MenuItem::findOrFail($id);
+        return view('item.edit')->with([
+          'item' => $item
+        ]);
     }
 
     /**
@@ -81,6 +94,39 @@ class MenuItemController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $item = MenuItem::findOrFail($id);
+        if($request->user()->can('create', \App\Resturant::class)){
+          $this->validate($request,[
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            //'photo' => 'required'
+          ]);
+          if($request->hasFile('photo')){
+            $path = $request->file('photo')->store('public');
+            $item->fill([
+              'name' => $request->name,
+              'description' => $request->description,
+              'price' => $request->price,
+              'photo' => Storage::url($path)
+            ]);
+            $item->save();
+          }
+          else{
+            $item->fill([
+              'name' => $request->name,
+              'description' => $request->description,
+              'price' => $request->price,
+
+            ]);
+            $item->save();
+          }
+
+          return redirect("/resturant/{$item->resturant->id}");
+        }
+        else{
+          abort(401);
+        }
     }
 
     /**
@@ -92,5 +138,7 @@ class MenuItemController extends Controller
     public function destroy($id)
     {
         //
+        MenuItem::destroy($id);
+        return back();
     }
 }

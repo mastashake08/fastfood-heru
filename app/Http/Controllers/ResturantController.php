@@ -88,6 +88,10 @@ class ResturantController extends Controller
     public function edit($id)
     {
         //
+        return view('resturant.edit')->with([
+          'resturant' => Resturant::findOrFail($id)
+        ]);
+
     }
 
     /**
@@ -99,7 +103,41 @@ class ResturantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $resturant = Resturant::findOrFail($id);
+        if(auth()->user()->can('create',Resturant::class)){
+          $this->validate($request,[
+            'address' => 'required',
+            'phone' => 'required',
+            'name' => 'required',
+
+          ]);
+          if($request->hasFile('photo')){
+            $path = $request->file('photo')->store('public');
+            $resturant->fill([
+              'name' => $request->name,
+              'photo' => Storage::url($path),
+              'address' => $request->address,
+              'phone' => $request->phone,
+              'food_category_id' => $request->food_category_id
+            ]);
+            $resturant->save();
+          }
+          else{
+            $resturant->fill([
+              'name' => $request->name,
+              'address' => $request->address,
+              'phone' => $request->phone,
+              'food_category_id' => $request->food_category_id
+            ]);
+            $resturant->save();
+          }
+
+          return redirect('/home');
+        }
+        else{
+          abort(401);
+        }
+
     }
 
     /**

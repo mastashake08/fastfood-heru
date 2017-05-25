@@ -22,6 +22,7 @@
                           <td><img width="250" height="250" class="img-responsive img-rounded" src="{{$category->photo}}"/></td>
                           <td>{{$category->name}}</td>
                           <td>
+                            <a href="{{url('/category/'.$category->id.'/edit')}}" class="btn btn-info btn-sm">Edit</a>
                             <form  action="{{ url('/category/'.$category->id) }}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               {{ csrf_field() }}
@@ -64,6 +65,7 @@
                           <td>{{$resturant->phone}}</td>
                           <td>{{$resturant->category->name}}</td>
                           <td>
+                            <a href="{{url('/resturant/'.$resturant->id.'/edit')}}" class="btn btn-info btn-sm">Edit</a>
                             <form  action="{{ url('/resturant/'.$resturant->id) }}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               {{ csrf_field() }}
