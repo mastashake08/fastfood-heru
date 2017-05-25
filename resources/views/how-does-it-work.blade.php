@@ -9,7 +9,7 @@
                 <div class="panel-heading">Help Center</div>
 
                 <div class="panel-body">
-<div class="jumbotron">
+<div class="">
   <p>
 Frequently Asked Questions:
 <br>
