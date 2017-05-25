@@ -36,14 +36,16 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <img src="{{url('/img/logo.jpg')}}" class="img img-responsive img-rounded" height="50" width="50">
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                      <li><a href="{{url('/about')}}"><strong>About</strong></a></li>
+                      <li><a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a></li>
+                      <li><a href="{{url('/category')}}"><strong>Food Categories</strong></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
