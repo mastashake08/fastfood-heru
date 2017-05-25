@@ -21,6 +21,13 @@
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 </head>
 <body>
+<style>
+    html, body {
+        background-image: url(@yield('background'));
+        background-size: cover;
+    }
+
+</style>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -83,8 +90,14 @@
         @yield('content')
         <div class="navbar navbar-default navbar-fixed-bottom">
       <div class="container">
-        <p class="navbar-text pull-left">© 2014 - Site Built By Jyrone Parker
+        <p class="navbar-text pull-left">© 2017 - Site Built By Jyrone Parker
              <a href="https://jyroneparker.com" target="_blank" >Get Yours Now</a>
+        </p>
+        <p class="navbar-text pull-left">
+             <a href="{{url('/privacy')}}" target="_blank" >Privacy Policy</a>
+        </p>
+        <p class="navbar-text pull-left">
+             <a href="{{url('/terms')}}" target="_blank" >Terms Of Service</a>
         </p>
 
         <a href="" class="navbar-btn  pull-right">

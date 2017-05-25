@@ -35,3 +35,9 @@ Route::get('charge','OrderController@charge');
 Route::group(['prefix' => 'customer'],function(){
   Route::post('update-payment','CustomerController@updatePayment');
 });
+Route::get('/privacy', function(){
+  return view('privacy');
+});
+Route::get('/terms',function(){
+  return view('/terms');
+});
