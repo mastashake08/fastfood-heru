@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -12,7 +12,7 @@
                     {!!nl2br($message)!!}
                     <br>
 
-
+                    @if(Auth::guest())
                               <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
                               <form accept-charset="UTF-8" action="{{url('/charge')}}" method="POST" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{env('STRIPE_KEY')}}" id="payment-form">
                                 <input type="hidden" name="message" value="{{$message}}">
@@ -73,6 +73,33 @@
                               </form>
 
                             <div class='col-md-4'></div>
+                            @else
+                            <form accept-charset="UTF-8" action="{{url('/charge')}}" method="POST" >
+                              <input type="hidden" name="message" value="{{$message}}">
+                              <input type="hidden" name="price" value="{{$price}}">
+                              <input type="hidden" name="resturant" value="{{$resturant->id}}">
+                              <div class='form-row'>
+                                <div class='col-xs-12 form-group required'>
+                                  <label class='control-label'>Delivery Address</label>
+                                  <input class='form-control' name="address" size='4' type='text' value="{{auth()->user()->address}}">
+                                </div>
+                              </div>
+                              <div class='form-row'>
+                                <div class='col-md-12'>
+                                  <div class='form-control total btn btn-info'>
+                                    Total:
+                                    <span class='amount'>{{money_format('%.2n', $price)}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class='form-row'>
+                                <div class='col-md-12 form-group'>
+                                  <button class='form-control btn btn-primary submit-button' type='submit'>Pay With Default Card»</button>
+                                </div>
+                              </div>
+                            </form>
+
+                            @endif
                         </div>
                     </div>
 

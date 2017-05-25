@@ -32,3 +32,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('charge','OrderController@charge');
 Route::get('charge','OrderController@charge');
+Route::group(['prefix' => 'customer'],function(){
+  Route::post('update-payment','CustomerController@updatePayment');
+});

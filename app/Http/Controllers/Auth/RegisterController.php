@@ -37,6 +37,9 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+
     }
 
     /**
@@ -62,10 +65,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $customer = \Stripe\Customer::create(array(
+        "description" => "Customer for {$data['email']}",
+      ));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'customer_id' => $customer->id,
+            'address' => $data['address']
         ]);
     }
 }

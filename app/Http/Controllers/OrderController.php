@@ -108,23 +108,41 @@ class OrderController extends Controller
     public function charge(Request $request){
       // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
-\Stripe\Stripe::setApiKey("sk_test_2wAB7U1tV7lDLqyj8hkjwXFI");
+\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
 // Token is created using Stripe.js or Checkout!
 // Get the payment token submitted by the form:
-$token = $request->input('reservation.stripe_token');
+if($request->user() != null){
+    $customer = $request->user()->customer_id;
+    // Charge the user's card:
+    $charge = \Stripe\Charge::create(array(
+      "amount" => $request->price * 100,
+      "currency" => "usd",
+      "description" => $request->message,
+      "metadata" => [
+        'address' => $request->user()->address,
+        'resturant_id' => $request->resturant
+      ],
+      "customer" => $customer,
+    ));
 
-// Charge the user's card:
-$charge = \Stripe\Charge::create(array(
-  "amount" => $request->price * 100,
-  "currency" => "usd",
-  "description" => $request->message,
-  "metadata" => [
-    'address' => $request->address,
-    'resturant_id' => $request->resturant
-  ],
-  "source" => $token,
-));
+}
+else{
+  $token = $request->input('reservation.stripe_token');
+  // Charge the user's card:
+  $charge = \Stripe\Charge::create(array(
+    "amount" => $request->price * 100,
+    "currency" => "usd",
+    "description" => $request->message,
+    "metadata" => [
+      'address' => $request->address,
+      'resturant_id' => $request->resturant
+    ],
+    "source" => $token,
+  ));
+
+}
+
 // notify admins
 $admins = \App\User::where('type','admin')->get();
 $admins->each(function($item,$value) use($charge){

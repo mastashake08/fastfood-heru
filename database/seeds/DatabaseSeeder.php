@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
           'name' => 'Jyrone Parker',
           'email' => 'jyrone.parker@gmail.com',
           'password' => bcrypt('n1nt3nd0'),
-          'type' => 'admin'
+          'type' => 'admin',
+          'address' => '113 East Mason Ave'
         ]);
     }
 }

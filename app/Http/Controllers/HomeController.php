@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
     }
 
     /**
@@ -32,7 +33,8 @@ class HomeController extends Controller
         }
         else{
           $with = [
-            'categories' => \App\FoodCategory::paginate(10)
+            'categories' => \App\FoodCategory::paginate(10),
+            'customer' => \Stripe\Customer::retrieve(auth()->user()->customer_id)
           ];
           return view('customer.home')->with($with);
         }
