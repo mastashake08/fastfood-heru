@@ -89,7 +89,7 @@
 
         @yield('content')
         <div class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
+
         <p class="navbar-text pull-left">© 2017 - Site Built By Jyrone Parker
              <a href="https://jyroneparker.com" target="_blank" >Get Yours Now</a>
         </p>
@@ -105,7 +105,7 @@
 
         <a href="" class="navbar-btn  pull-right">
         <img src="{{url('/img/melanite.jpg')}}" class="img img-responsive img-rounded" height="150" width="150"/>
-      </div>
+      
 
 
     </div>
