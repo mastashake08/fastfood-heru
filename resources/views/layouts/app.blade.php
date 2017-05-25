@@ -99,6 +99,9 @@
         <p class="navbar-text pull-left">
              <a href="{{url('/terms')}}" target="_blank" >Terms Of Service</a>
         </p>
+        <p class="navbar-text pull-left">
+             <a href="{{url('/how-does-it-work')}}" target="_blank" >Help Center</a>
+        </p>
 
         <a href="" class="navbar-btn  pull-right">
         <img src="{{url('/img/melanite.jpg')}}" class="img img-responsive img-rounded" height="150" width="150"/>
