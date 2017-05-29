@@ -41,3 +41,4 @@ Route::get('/privacy', function(){
 Route::get('/terms',function(){
   return view('/terms');
 });
+Route::resource('customer','CustomerController');

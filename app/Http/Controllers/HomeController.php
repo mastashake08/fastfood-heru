@@ -34,7 +34,8 @@ class HomeController extends Controller
         else{
           $with = [
             'categories' => \App\FoodCategory::paginate(10),
-            'customer' => \Stripe\Customer::retrieve(auth()->user()->customer_id)
+            'customer' => \Stripe\Customer::retrieve(auth()->user()->customer_id),
+            'user' => auth()->user()
           ];
           return view('customer.home')->with($with);
         }
