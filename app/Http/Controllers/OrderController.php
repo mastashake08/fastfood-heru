@@ -92,9 +92,11 @@ class OrderController extends Controller
       $resturant = null;
       foreach($request->order as $key => $value){
         $item = \App\MenuItem::findOrFail($key);
+        if($value > 0){
         $price += $item->price * $value;
         $message .=  "{$item->name} x {$value} \n";
         $resturant = $item->resturant;
+      }
       }
       $with = [
         'price' => $price,
