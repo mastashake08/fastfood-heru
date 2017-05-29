@@ -77,7 +77,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'customer_id' => $customer->id,
-            'address' => "{$data['address']} {$data['apt']} {$data['city']} {$data['state']}, {$data['zip']}"
+            'address' => $data['address'],
+            'apt' => $data['apt'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip']
         ]);
     }
 }
