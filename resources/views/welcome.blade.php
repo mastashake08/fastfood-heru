@@ -81,13 +81,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <strong>{{config('app.name')}}</strong>
+                    <strong><img src="/img/logo.jpg" width="250" height="250" class="img img-responsive img-rounded"/></strong>
                 </div>
 
                 <div class="links">
                     <a href="{{url('/about')}}"><strong>About</strong></a>
                     <a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a>
-                    <a href="{{url('/category')}}"><strong>Food Categories</strong></a>
+                    <a href="{{url('/category')}}"><strong>Resturants</strong></a>
                 </div>
             </div>
         </div>

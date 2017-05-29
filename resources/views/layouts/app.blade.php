@@ -26,6 +26,9 @@
         background-image: url(@yield('background'));
         background-size: cover;
     }
+    .navbar-fixed-bottom {
+    background: none;
+    }
 
 </style>
     <div id="app">
@@ -52,7 +55,7 @@
                     <ul class="nav navbar-nav">
                       <li><a href="{{url('/about')}}"><strong>About</strong></a></li>
                       <li><a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a></li>
-                      <li><a href="{{url('/category')}}"><strong>Food Categories</strong></a></li>
+                      <li><a href="{{url('/category')}}"><strong>Resturants</strong></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -83,12 +86,16 @@
                             </li>
                         @endif
                     </ul>
+                    <div class="nav navbar navbar-right">
+                        <img src="{{url('/img/logo-spoon.png')}}" class="img img-responsive img-rounded" height="50" width="50">
+                    </div>
                 </div>
             </div>
         </nav>
 
         @yield('content')
-        <div class="navbar navbar-default navbar-fixed-bottom">
+        <footer>
+        <div class="navbar  navbar-fixed-bottom">
 
         <p class="navbar-text pull-left">© 2017 - Site Built By Jyrone Parker
              <a href="https://jyroneparker.com" target="_blank" >Get Yours Now</a>
@@ -105,10 +112,11 @@
 
         <a href="" class="navbar-btn  pull-right">
         <img src="{{url('/img/melanite.jpg')}}" class="img img-responsive img-rounded" height="150" width="150"/>
-      
+
 
 
     </div>
+  </footer>
     </div>
 
 
