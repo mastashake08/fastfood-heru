@@ -54,6 +54,10 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required'
         ]);
     }
 
@@ -73,7 +77,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'customer_id' => $customer->id,
-            'address' => $data['address']
+            'address' => "{$data['address']} {$data['apt']} {$data['city']} {$data['state']}, {$data['zip']}"
         ]);
     }
 }
