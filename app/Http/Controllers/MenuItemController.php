@@ -41,9 +41,14 @@ class MenuItemController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'photo' => 'required'
+            //'photo' => 'required'
           ]);
+          if($request->hasFile('photo')){
           $path = $request->file('photo')->store('public');
+          }
+          else{
+            $path = null;
+          }
           MenuItem::Create([
             'name' => $request->name,
             'description' => $request->description,
