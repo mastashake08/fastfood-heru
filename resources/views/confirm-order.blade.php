@@ -53,7 +53,7 @@
                                 <div class='form-row'>
                                   <div class='col-md-12'>
                                     <div class='form-control total btn btn-info'>
-                                      Total:
+                                      Total (Delivery Fee Included ):
                                       <span class='amount'>{{money_format('%.2n', $price)}}</span>
                                     </div>
                                   </div>
@@ -87,7 +87,7 @@
                               <div class='form-row'>
                                 <div class='col-md-12'>
                                   <div class='form-control total btn btn-info'>
-                                    Total:
+                                    Total (Delivery Fee Included):
                                     <span class='amount'>{{money_format('%.2n', $price)}}</span>
                                   </div>
                                 </div>

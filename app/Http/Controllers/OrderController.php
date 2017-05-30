@@ -90,16 +90,28 @@ class OrderController extends Controller
       $price=0;
       $message = '';
       $resturant = null;
+      $item_count = 0;
+      $type_price = 0;
       foreach($request->order as $key => $value){
         $item = \App\MenuItem::findOrFail($key);
         if($value > 0){
         $price += $item->price * $value;
         $message .=  "{$item->name} x {$value} \n";
         $resturant = $item->resturant;
+        $item_count +=1;
       }
+      }
+      if($item_count >=1 && $item_count <5 ){
+        $type_price += ceil($price * 0.08);
+      }
+      elseif($item_count >=5 && $item_count <10){
+        $type_price += ceil($price * 0.06);
+      }
+      elseif($item_count > 10){
+        $type_price += ceil($price * 0.05);
       }
       $with = [
-        'price' => $price,
+        'price' => $price + $type_price,
         'message' => $message,
         'resturant' => $resturant
       ];

@@ -47,7 +47,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src=@yield('logo','/img/logo.png') class="img img-responsive img-rounded" height="50" width="50">
+                        <img src=@yield('logo','/img/logo-white.png') class="img img-responsive img-rounded" height="50" width="50">
                     </a>
                 </div>
 

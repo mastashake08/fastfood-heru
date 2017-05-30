@@ -24,6 +24,23 @@
                 background-size: cover;
             }
 
+            .form-inline .form-control {
+                display: inline-block;
+                width: 80%;
+                color: black;
+            }
+
+            .btn-success {
+                color: #000;
+                background-color: #5cb85c;
+                border-color: #4cae4c;
+            }
+
+
+
+
+
+
             .full-height {
                 height: 100vh;
             }
@@ -32,6 +49,7 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                width:100%;
             }
 
             .position-ref {
@@ -65,6 +83,24 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            *::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                color:    #909;
+            }
+            *:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+               color:    #909;
+               opacity:  1;
+            }
+            *::-moz-placeholder { /* Mozilla Firefox 19+ */
+               color:    #909;
+               opacity:  1;
+            }
+            *:-ms-input-placeholder { /* Internet Explorer 10-11 */
+               color:    #909;
+            }
+            *::-ms-input-placeholder { /* Microsoft Edge */
+               color:    #909;
+            }
         </style>
     </head>
     <body>
@@ -83,7 +119,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     <strong><img src="/img/logo.png" width="250" height="250" /></strong>
-                    <form class="form-inline" method="get" action="{{url('/search/resturant')}}">
+                    <form id="search" class="form-inline" method="get" action="{{url('/search/resturant')}}">
                       <input class="form-control" name="term" placeholder="Search Term" />
                       <button class="btn btn-success">Search</button>
                     </form>
