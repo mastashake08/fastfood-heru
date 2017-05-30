@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -81,13 +82,17 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <strong><img src="/img/logo.png" width="250" height="250" class="img img-responsive img-rounded"/></strong>
+                    <strong><img src="/img/logo.png" width="250" height="250" /></strong>
+                    <form class="form-inline" method="get" action="{{url('/search/resturant')}}">
+                      <input class="form-control" name="term" placeholder="Search Term" />
+                      <button class="btn btn-success">Search</button>
+                    </form>
                 </div>
 
                 <div class="links">
                     <a href="{{url('/about')}}"><strong>About</strong></a>
                     <a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a>
-                    <a href="{{url('/category')}}"><strong>Resturants</strong></a>
+                    <a href="{{url('/resturant')}}"><strong>Resturants</strong></a>
                 </div>
             </div>
         </div>

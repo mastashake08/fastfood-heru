@@ -56,7 +56,7 @@
                     <ul class="nav navbar-nav">
                       <li><a href="{{url('/about')}}"><strong>About</strong></a></li>
                       <li><a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a></li>
-                      <li><a href="{{url('/category')}}"><strong>Resturants</strong></a></li>
+                      <li><a href="{{url('/resturant')}}"><strong>Resturants</strong></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -111,7 +111,7 @@
              <a href="{{url('/how-does-it-work')}}" target="_blank" >Help Center</a>
         </p>
 
-        <a href="" class="navbar-btn  pull-right">
+        <a href="{{url('/contact-us')}}" class="navbar-btn  pull-right">
         <img src="{{url('/img/melanite.png')}}" class="img img-responsive img-rounded" height="150" width="150"/>
 
 

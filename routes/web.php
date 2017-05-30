@@ -41,4 +41,7 @@ Route::get('/privacy', function(){
 Route::get('/terms',function(){
   return view('/terms');
 });
-Route::resource('customer','CustomerController');
+Route::resource('/customer','CustomerController');
+Route::get('/contact-us','ContactController@index');
+Route::post('/contact-us','ContactController@store');
+Route::get('/search/resturant','ResturantController@search');

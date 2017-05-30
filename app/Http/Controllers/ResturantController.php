@@ -15,6 +15,11 @@ class ResturantController extends Controller
     public function index()
     {
         //
+        $resturants = Resturant::paginate(10);
+        $with = [
+          'resturants' => $resturants
+        ];
+        return view('resturant.all')->with($with);
     }
 
     /**
@@ -157,5 +162,14 @@ class ResturantController extends Controller
         else{
           abort(401);
         }
+    }
+
+    public function search(Request $request){
+      $resturants = Resturant::where('name','like','%'.$request->term.'%')->paginate(10);
+      $with = [
+        'resturants' => $resturants
+      ];
+      return view('resturant.all')->with($with);
+
     }
 }
