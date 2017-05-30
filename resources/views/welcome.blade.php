@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <strong><img src="/img/logo.jpg" width="250" height="250" class="img img-responsive img-rounded"/></strong>
+                    <strong><img src="/img/logo.png" width="250" height="250" class="img img-responsive img-rounded"/></strong>
                 </div>
 
                 <div class="links">

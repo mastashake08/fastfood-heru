@@ -26,9 +26,10 @@
         background-image: url(@yield('background'));
         background-size: cover;
     }
-    .navbar-fixed-bottom {
+    .navbar-fixed-bottom, .navbar-default {
     background: none;
     }
+
 
 </style>
     <div id="app">
@@ -46,7 +47,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{url('/img/logo.jpg')}}" class="img img-responsive img-rounded" height="50" width="50">
+                        <img src="{{url('/img/logo.png')}}" class="img img-responsive img-rounded" height="50" width="50">
                     </a>
                 </div>
 
@@ -111,7 +112,7 @@
         </p>
 
         <a href="" class="navbar-btn  pull-right">
-        <img src="{{url('/img/melanite.jpg')}}" class="img img-responsive img-rounded" height="150" width="150"/>
+        <img src="{{url('/img/melanite.png')}}" class="img img-responsive img-rounded" height="150" width="150"/>
 
 
 
