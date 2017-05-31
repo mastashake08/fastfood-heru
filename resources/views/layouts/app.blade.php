@@ -29,7 +29,7 @@
     .navbar-fixed-bottom, .navbar-default {
     background: none;
     }
-    .panel, .panel-default {
+    .panel-transparent {
       background:none;
     }
 
