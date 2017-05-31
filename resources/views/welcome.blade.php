@@ -128,7 +128,7 @@
                 <div class="links">
                     <a href="{{url('/about')}}"><strong>About</strong></a>
                     <a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a>
-                    <a href="{{url('/resturant')}}"><strong>Resturants</strong></a>
+                    <a href="{{url('/resturant')}}"><strong>Restaurants</strong></a>
                 </div>
             </div>
         </div>

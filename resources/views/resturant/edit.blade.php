@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Resturant {{$resturant->name}}</div>
+                <div class="panel-heading">Edit Restaurant {{$resturant->name}}</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('resturant/'.$resturant->id) }}" enctype="multipart/form-data">
                       <input type="hidden" name="_method" value="PUT">
