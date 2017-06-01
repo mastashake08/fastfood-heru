@@ -12,16 +12,17 @@ use NotificationChannels\Twilio\TwilioSmsMessage;
 class NewOrder extends Notification
 {
     use Queueable;
-    public $charge;
+    public $charge,$comments;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(\Stripe\Charge $charge)
+    public function __construct(\Stripe\Charge $charge,$comments)
     {
         //
         $this->charge = $charge;
+        $this->comments = $comments;
     }
 
     /**
@@ -44,13 +45,17 @@ class NewOrder extends Notification
     public function toMail($notifiable)
     {
         $resturant  = \App\Resturant::find($this->charge->metadata["resturant_id"]);
+        $address = $this->charge->metadata['address'];
+        $user = \App\User::where('address',$address)->first();
         return (new MailMessage)
                     ->subject('New Order')
                     ->greeting('Hello')
                     ->line('New order has been placed.')
                     ->line($this->charge->description)
-                    ->line("Pickup at {$resturant->name} {$resturant->address} {$resturant->phone}")
-                    ->line($this->charge->metadata['address']);
+                    ->line("Pickup: {$resturant->name} {$resturant->address} {$resturant->phone}")
+                    ->line("Dropoff: {$address}")
+                    ->line("Customer Name: {$user->name}")
+                    ->line("Comments: {$this->comments}");
                     //->action('Notification Action', url('/'))
                     //->line('Thank you for using our application!');
     }

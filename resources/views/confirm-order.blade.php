@@ -23,6 +23,10 @@
                                     <label class='control-label'>Delivery Address</label>
                                     <input class='form-control' name="address" size='4' type='text'>
                                   </div>
+                                  <div class='col-xs-12 form-group '>
+                                    <label class='control-label'>Comments</label>
+                                    <textarea class="form-control" name="comments" placeholder="Extra napkins, no ice, etc."></textarea>
+                                  </div>
                                 </div>
                                 <div class='form-row'>
                                   <div class='col-xs-12 form-group required'>
@@ -82,6 +86,10 @@
                                 <div class='col-xs-12 form-group required'>
                                   <label class='control-label'>Delivery Address</label>
                                   <input class='form-control' name="address" size='4' type='text' value="{{auth()->user()->address}}">
+                                </div>
+                                <div class='col-xs-12 form-group '>
+                                  <label class='control-label'>Comments</label>
+                                  <textarea class="form-control" name="comments" placeholder="Extra napkins, no ice, etc."></textarea>
                                 </div>
                               </div>
                               <div class='form-row'>

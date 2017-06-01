@@ -28,7 +28,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($resturant->items as $item)
+                        @foreach($items as $item)
                         <tr>
                           <td><img src="{{$resturant->photo}}" class="img img-responsive img-rounded" height="100" width="100"/></td>
                           <td>{{$item->name}}</td>
@@ -53,14 +53,14 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Name</th>
-                          <th>Description</th>
-                          <th>Price</th>
+                          <th><a href="{{url('resturant/'.$resturant->id.'/?orderBy=name')}}">Name</a></th>
+                          <th><a href="{{url('resturant/'.$resturant->id.'/?orderBy=description')}}">Description</a></th>
+                          <th><a href="{{url('resturant/'.$resturant->id.'/?orderBy=price')}}">Price</a></th>
                           <th>Quantity</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($resturant->items as $item)
+                        @foreach($items as $item)
                         <tr>
                           <td>{{$item->name}}</td>
                           <td>{{$item->description}}</td>

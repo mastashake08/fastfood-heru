@@ -101,15 +101,17 @@ class OrderController extends Controller
         $item_count +=1;
       }
       }
-      if($item_count >=1 && $item_count <5 ){
-        $type_price += ceil($price * 0.08);
+      $ceil = ceil($price * 0.10);
+      if($ceil < 6.00){
+        $type_price = 6.00;
       }
-      elseif($item_count >=5 && $item_count <10){
-        $type_price += ceil($price * 0.06);
+      elseif($ceil >= 6.00 && $ceil < 30.00 ){
+        $type_price = $ceil;
       }
-      elseif($item_count > 10){
-        $type_price += ceil($price * 0.05);
+      else{
+        $type_price = 30.00;
       }
+
       $with = [
         'price' => $price + $type_price,
         'message' => $message,
@@ -158,12 +160,16 @@ else{
 }
 
 // notify admins
+$use = [
+  'charge' => $charge,
+  'comments' => $request->comments
+];
 $admins = \App\User::where('type','admin')->get();
-$admins->each(function($item,$value) use($charge){
-  $item->notify(new \App\Notifications\NewOrder($charge));
+$admins->each(function($item,$value) use($use){
+  $item->notify(new \App\Notifications\NewOrder($use['charge'],$use['comments']));
 });
 $resturant = \App\Resturant::find($request->resturant);
-$resturant->notify(new \App\Notifications\NewOrder($charge));
+$resturant->notify(new \App\Notifications\NewOrder($charge,$request->comments));
 $with = [
   'charge' => $charge,
   'resturant' => $resturant

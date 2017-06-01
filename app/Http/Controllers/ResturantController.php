@@ -76,12 +76,26 @@ class ResturantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
         //
-        return view('resturant.individual')->with([
-          'resturant' => Resturant::findOrFail($id)
-        ]);
+        $resturant = Resturant::findOrFail($id);
+        if($request->orderBy == 'name')
+        $items = $resturant->items()->orderBy('name','asc')->get();
+        elseif($request->orderBy == 'description'){
+          $items = $resturant->items()->orderBy('description','asc')->get();
+        }
+        elseif($request->orderBy == 'price'){
+          $items = $resturant->items()->orderBy('price','asc')->get();
+        }
+        else{
+          $items = $resturant->items()->orderBy('name','asc')->get();
+        }
+        $with = [
+          'resturant' => $resturant,
+          'items' => $items
+        ];
+        return view('resturant.individual')->with($with);
     }
 
     /**
