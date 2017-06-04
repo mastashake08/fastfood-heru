@@ -99,7 +99,7 @@
 
         @yield('content')
         <footer>
-        <div class="navbar-brand  navbar-fixed-bottom">
+        <div class="navbar-brand  navbar-bottom">
 
         <p class="navbar-text pull-left">© 2017 - Site Built By Jyrone Parker
              <a href="https://jyroneparker.com" target="_blank" >Get Yours Now</a>
