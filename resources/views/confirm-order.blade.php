@@ -16,7 +16,10 @@
                               <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
                               <form accept-charset="UTF-8" action="{{url('/charge')}}" method="POST" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{env('STRIPE_KEY')}}" id="payment-form">
                                 <input type="hidden" name="message" value="{{$message}}">
+                                <input type="hidden" name="total_price" value="{{$total_price}}">
                                 <input type="hidden" name="price" value="{{$price}}">
+                                <input type="hidden" name="tax" value="{{$tax}}">
+                                <input type="hidden" name="fee" value="{{$fee}}">
                                 <input type="hidden" name="resturant" value="{{$resturant->id}}">
                                 <div class='form-row'>
                                   <div class='col-xs-12 form-group required'>
@@ -26,6 +29,7 @@
                                   <div class='col-xs-12 form-group '>
                                     <label class='control-label'>Comments</label>
                                     <textarea class="form-control" name="comments" placeholder="Extra napkins, no ice, etc."></textarea>
+                                    <input class="form-control" placeholder="Tip" name="tip"/>
                                   </div>
                                 </div>
                                 <div class='form-row'>
@@ -58,8 +62,9 @@
                                   <div class='col-md-12'>
                                     <div class='form-control total btn btn-info'>
                                       Total (Delivery Fee Included ):
-                                      <span class='amount'>{{money_format('%.2n', $price)}}</span>
+                                      <span class='amount'>{{money_format('%.2n', $total_price)}}</span>
                                     </div>
+
                                   </div>
                                 </div>
                                 <div class='form-row'>
@@ -67,7 +72,6 @@
                                     <button class='form-control btn btn-primary submit-button' type='submit'>Pay »</button>
                                   </div>
                                 </div>
-                                <div class='form-row'>
                                   <div class='col-md-12 error form-group hide'>
                                     <div class='alert-danger alert'>
                                       Please correct the errors and try again.
@@ -80,7 +84,10 @@
                             @else
                             <form accept-charset="UTF-8" action="{{url('/charge')}}" method="POST" >
                               <input type="hidden" name="message" value="{{$message}}">
+                              <input type="hidden" name="total_price" value="{{$total_price}}">
                               <input type="hidden" name="price" value="{{$price}}">
+                              <input type="hidden" name="tax" value="{{$tax}}">
+                              <input type="hidden" name="fee" value="{{$fee}}">
                               <input type="hidden" name="resturant" value="{{$resturant->id}}">
                               <div class='form-row'>
                                 <div class='col-xs-12 form-group required'>
@@ -90,13 +97,14 @@
                                 <div class='col-xs-12 form-group '>
                                   <label class='control-label'>Comments</label>
                                   <textarea class="form-control" name="comments" placeholder="Extra napkins, no ice, etc."></textarea>
+                                  <input class="form-control" placeholder="Tip" name="tip"/>
                                 </div>
                               </div>
                               <div class='form-row'>
                                 <div class='col-md-12'>
                                   <div class='form-control total btn btn-info'>
                                     Total (Delivery Fee Included):
-                                    <span class='amount'>{{money_format('%.2n', $price)}}</span>
+                                    <span class='amount'>{{money_format('%.2n', $total_price)}}</span>
                                   </div>
                                 </div>
                               </div>
@@ -104,6 +112,8 @@
                                 <div class='col-md-12 form-group'>
                                   <button class='form-control btn btn-primary submit-button' type='submit'>Pay With Default Card»</button>
                                 </div>
+
+
                               </div>
                             </form>
 

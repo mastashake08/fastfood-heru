@@ -92,6 +92,7 @@ class OrderController extends Controller
       $resturant = null;
       $item_count = 0;
       $type_price = 0;
+      $sales_tax = 0;
       foreach($request->order as $key => $value){
         $item = \App\MenuItem::findOrFail($key);
         if($value > 0){
@@ -101,6 +102,7 @@ class OrderController extends Controller
         $item_count +=1;
       }
       }
+      $sales_tax = $price * 0.06;
       $ceil = ceil($price * 0.10);
       if($ceil < 6.00){
         $type_price = 6.00;
@@ -113,7 +115,10 @@ class OrderController extends Controller
       }
 
       $with = [
-        'price' => $price + $type_price,
+        'total_price' => $price + $type_price +$sales_tax,
+        'price' => $price,
+        'fee' => $type_price,
+        'tax' => $sales_tax,
         'message' => $message,
         'resturant' => $resturant
       ];
@@ -132,12 +137,16 @@ if($request->user() != null){
     $customer = $request->user()->customer_id;
     // Charge the user's card:
     $charge = \Stripe\Charge::create(array(
-      "amount" => $request->price * 100,
+      "amount" => ($request->total_price + $request->tip) * 100 ,
       "currency" => "usd",
       "description" => $request->message,
       "metadata" => [
         'address' => $request->user()->address,
-        'resturant_id' => $request->resturant
+        'resturant_id' => $request->resturant,
+        'fee' => $request->fee,
+        'tax' => $request->tax,
+        'price' => $request->price,
+        'tip' => $request->tip
       ],
       "customer" => $customer,
     ));
@@ -147,12 +156,16 @@ else{
   $token = $request->input('reservation.stripe_token');
   // Charge the user's card:
   $charge = \Stripe\Charge::create(array(
-    "amount" => $request->price * 100,
+    "amount" => ($request->total_price + $request->tip) * 100,
     "currency" => "usd",
     "description" => $request->message,
     "metadata" => [
       'address' => $request->address,
-      'resturant_id' => $request->resturant
+      'resturant_id' => $request->resturant,
+      'fee' => $request->fee,
+      'tax' => $request->tax,
+      'price' => $request->price,
+      'tip' => $request->tip
     ],
     "source" => $token,
   ));
