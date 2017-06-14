@@ -103,7 +103,7 @@ class OrderController extends Controller
       }
       }
       $sales_tax = $price * 0.06;
-      $ceil = ceil($price * 0.10);
+      $ceil = ceil(($price * 0.10) + $sales_tax);
       if($ceil < 10.00){
         $type_price = 0.00;
       }
