@@ -113,10 +113,21 @@
         <p class="navbar-text pull-left">
              <a href="{{url('/how-does-it-work')}}" target="_blank" >Help Center</a>
         </p>
+        <p class="navbar-text pull-left">
+             <a href="https://www.instagram.com/fastfoodiebiz/" target="_blank" ><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </p>
+        <p class="navbar-text pull-left">
+             <a href="https://www.facebook.com/FastFoodie.biz" target="_blank" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </p>
+        <p class="navbar-text pull-left">
+             <a href="https://twitter.com/fastfoodiebiz" target="_blank" ><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </p>
 
-        <a href="{{url('/contact-us')}}" class="navbar-btn  pull-right">
+        <p class="pull-right navbar-img">
+        <a href="{{url('/contact-us')}}" class="  ">
+
         <img src="{{url('/img/melanite.png')}}" class="img img-responsive img-rounded" height="150" width="150"/>
-
+      </p>
 
 
     </div>
@@ -126,7 +137,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    
+
 
 </body>
 </html>
