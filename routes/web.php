@@ -22,7 +22,10 @@ Route::get('/about', function(){
 Route::get('/how-does-it-work', function(){
   return view('how-does-it-work');
 });
-
+Route::get('categories',function(){
+  return view('category.categories');
+});
+Route::get('categories/filter','FoodCategoryController@filter');
 Route::resource('category', 'FoodCategoryController');
 Route::resource('resturant', 'ResturantController');
 Route::resource('menu-item', 'MenuItemController');

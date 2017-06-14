@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Categories</div>
+                <div class="panel-heading">Food Categories</div>
 
                 <div class="panel-body">
                   <table class="table">
@@ -13,6 +13,7 @@
                         <tr>
                           <th>Photo</th>
                           <th>Name</th>
+                          <th>Category</th>
                           <th>Actions</th>
                         </tr>
                       </thead>
@@ -21,6 +22,7 @@
                         <tr>
                           <td><img width="250" height="250" class="img-responsive img-rounded" src="{{$category->photo}}"/></td>
                           <td>{{$category->name}}</td>
+                          <td>{{$category->category}}</td>
                           <td>
                             <a href="{{url('/category/'.$category->id.'/edit')}}" class="btn btn-info btn-sm">Edit</a>
                             <form  action="{{ url('/category/'.$category->id) }}" method="POST">

@@ -55,6 +55,7 @@ class FoodCategoryController extends Controller
         $path = $request->file('photo')->store('public');
         $category = Category::Create([
           'name' => $request->name,
+          'category' => $request->category,
           'photo' => Storage::url($path)
         ]);
         return redirect('/home');
@@ -116,6 +117,7 @@ class FoodCategoryController extends Controller
           $path = $request->file('photo')->store('public');
           $category->fill([
             'name' => $request->name,
+            'category' => $request->category,
             'photo' => Storage::url($path)
           ]);
           $category->save();
@@ -123,6 +125,7 @@ class FoodCategoryController extends Controller
         else{
           $category->fill([
             'name' => $request->name,
+            'category' => $request->category
           ]);
           $category->save();
         }
@@ -153,4 +156,14 @@ class FoodCategoryController extends Controller
           abort(401);
         }
     }
+
+    public function filter(Request $request){
+        $categories = Category::where('category', $request->category)->paginate(5);
+
+        $with = [
+          'categories' => $categories
+        ];
+        return view('category.all')->with($with);
+      }
+
 }

@@ -59,7 +59,7 @@
                     <ul class="nav navbar-nav">
                       <li><a href="{{url('/about')}}"><strong>About</strong></a></li>
                       <li><a href="{{url('/how-does-it-work')}}"><strong>How Does It Work</strong></a></li>
-                      <li><a href="{{url('/resturant')}}"><strong>Restaurants</strong></a></li>
+                      <li><a href="{{url('/categories')}}"><strong>Categories</strong></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

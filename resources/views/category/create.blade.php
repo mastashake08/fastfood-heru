@@ -24,6 +24,23 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Category</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="category">
+                                  <option value="resturant">Resturant</option>
+                                  <option value="grocery">Grocery</option>
+                                  <option value="store">Convenience Store</option>
+                                </select>
+                                @if ($errors->has('category'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('category') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
                             <label for="photo" class="col-md-4 control-label">Photo</label>
 
