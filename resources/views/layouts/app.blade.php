@@ -120,7 +120,7 @@
              <a href="https://www.facebook.com/FastFoodie.biz" target="_blank" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
         </p>
         <p class="navbar-text pull-left">
-             <a href="https://twitter.com/fastfoodiebiz" target="_blank" ><i class="fa fa-twitter" aria-hidden="true"></i></a>
+             <a href="https://twitter.com/fastfoodiebiz"  target="_blank" ><i class="fa fa-twitter" aria-hidden="true"></i></a>
         </p>
 
         <p class="pull-right navbar-img">
