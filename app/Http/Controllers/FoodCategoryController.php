@@ -157,8 +157,8 @@ class FoodCategoryController extends Controller
         }
     }
 
-    public function filter(Request $request){
-        $categories = Category::where('category', $request->category)->paginate(5);
+    public function filter($filter){
+        $categories = Category::where('category', $filter)->paginate(5);
 
         $with = [
           'categories' => $categories

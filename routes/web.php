@@ -25,8 +25,9 @@ Route::get('/how-does-it-work', function(){
 Route::get('categories',function(){
   return view('category.categories');
 });
-Route::get('categories/filter','FoodCategoryController@filter');
+Route::get('categories/{filter}','FoodCategoryController@filter');
 Route::resource('category', 'FoodCategoryController');
+
 Route::resource('resturant', 'ResturantController');
 Route::resource('menu-item', 'MenuItemController');
 Route::post('place-order','OrderController@placeOrder');
