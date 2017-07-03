@@ -217,7 +217,7 @@
                              <div class="form-group">
                                  <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
                                  <input
-                                     type="tel"
+                                     type="text"
                                      class="form-control"
                                      name="cardExpiry"
                                      placeholder="MM / YY"
