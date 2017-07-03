@@ -108,10 +108,10 @@ class OrderController extends Controller
         $type_price = 0.00;
       }
       elseif($ceil+ $sales_tax >= 10.00 && $ceil+ $sales_tax < 30.00 ){
-        $type_price = $ceil;
+        $type_price = 4.99;
       }
       else{
-        $type_price = 30.00;
+        $type_price = 6.99;
       }
 
       $with = [
