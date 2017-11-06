@@ -121,7 +121,7 @@
                     <strong><img src="/img/logo-white.png" width="250" height="250" /></strong>
                     <form id="search" class="form-inline" method="get" action="{{url('/search/resturant')}}">
                       <input class="form-control" name="term" placeholder="Search Term" />
-                      <button class="btn btn-success">Search</button>
+                      <button class="btn btn-success">Find Resturant</button>
                     </form>
                 </div>
 
