@@ -137,7 +137,7 @@ if($request->user() != null){
     $customer = $request->user()->customer_id;
     // Charge the user's card:
     $charge = \Stripe\Charge::create(array(
-      "amount" => ($request->total_price + $request->tip) * 100 ,
+      "amount" => ceil($request->total_price + $request->tip) * 100 ,
       "currency" => "usd",
       "description" => $request->message,
       "metadata" => [
@@ -156,7 +156,7 @@ else{
   $token = $request->input('reservation.stripe_token');
   // Charge the user's card:
   $charge = \Stripe\Charge::create(array(
-    "amount" => ($request->total_price + $request->tip) * 100,
+    "amount" => ceil($request->total_price + $request->tip) * 100,
     "currency" => "usd",
     "description" => $request->message,
     "metadata" => [
