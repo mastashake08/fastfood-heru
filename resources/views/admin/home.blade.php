@@ -139,15 +139,7 @@
                         <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
                       </div>
                     </div>
-                    <div class='form-row'>
-                      <div class='col-md-12'>
-                        <div class='form-control total btn btn-info'>
-                          Total (Delivery Fee Included ):
-                          <span class='amount'>{{money_format('%.2n', $total_price)}}</span>
-                        </div>
-
-                      </div>
-                    </div>
+                    
                     <div class='form-row'>
                       <div class='col-md-12 form-group'>
                         <button class='form-control btn btn-primary submit-button' type='submit'>Pay »</button>
