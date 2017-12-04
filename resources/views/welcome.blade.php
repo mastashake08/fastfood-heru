@@ -21,7 +21,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<span class="logo"><img src="themes/html5up-stellar/images/logo.svg" alt="" /></span>
+						<span class="logo"><img src="img/logo.png" alt="" /></span>
 						<h1>{{env('APP_NAME')}}</h1>
 						<p>Fast For A Foodie💯</a>.</p>
 					</header>
@@ -54,14 +54,14 @@
 											<li><a href="{{url('/about')}}" class="button">Learn More</a></li>
 										</ul>
 									</div>
-									<span class="image"><img src="themes/html5up-stellar/images/pic01.jpg" alt="" /></span>
+									<span class="image"><img src="img/logo-spoon.png" alt="" /></span>
 								</div>
 							</section>
 
 						<!-- First Section -->
 							<section id="first" class="main special">
 								<header class="major">
-									<h2>Magna veroeros</h2>
+									<h2>Guidelines</h2>
 								</header>
 								<ul class="features">
 									<li>
@@ -90,36 +90,42 @@
 						<!-- Second Section -->
 							<section id="second" class="main special">
 								<header class="major">
-									<h2>Ipsum consequat</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+									<h2>Connectivity</h2>
+									<p>Just a few stats for you!</p>
 								</header>
 								<ul class="statistics">
 									<li class="style1">
-										<span class="icon fa-code-fork"></span>
-										<strong>5,120</strong> Etiam
+										<span class="icon fa fa-cutlery"></span>
+										<strong>{{\App\User::all()->count()}}</strong> Customers served
 									</li>
 									<li class="style2">
-										<span class="icon fa-folder-open-o"></span>
-										<strong>8,192</strong> Magna
+										<span class="icon fa fa-comments"></span>
+										<strong>{{\App\Review::all()->count()}}</strong> Foodie Reviews
 									</li>
 									<li class="style3">
-										<span class="icon fa-signal"></span>
-										<strong>2,048</strong> Tempus
+										<span class="icon fa fa-clock-o"></span>
+										<strong>30 mins - 1 hour</strong> ETA
 									</li>
 									<li class="style4">
-										<span class="icon fa-laptop"></span>
-										<strong>4,096</strong> Aliquam
+										<span class="icon fa fa-users"></span>
+										<strong>{{\App\User::all()->count()}}</strong> Users
 									</li>
 									<li class="style5">
-										<span class="icon fa-diamond"></span>
-										<strong>1,024</strong> Nullam
+										<span class="icon fa fa-user"></span>
+										<strong>{{\App\User::all()->count()}}</strong> Foodies
 									</li>
 								</ul>
-								<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
+								<p class="content">
+									We always stay in touch with our customers and their needs.
+									Making sure we give impeccable service, and how our company is perceived.
+									Fast Foodie takes full responsibility for: checking all food orders, accuracy and completeness while at the restaurant.
+									Selecting the most efficient route to the customer for a timely delivery. Handling of food containers to ensure highest food quality.
+									Fostering positive customer relations with businesses, restaurants, stores, and customers.
+									We love to hear your experience, and why you chose Fast Foodie.
+								</p>
 								<footer class="major">
 									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn More</a></li>
+										<li><a href="{{url('/register')}}" class="button">Sign Up Now</a></li>
 									</ul>
 								</footer>
 							</section>
@@ -127,13 +133,14 @@
 						<!-- Get Started -->
 							<section id="cta" class="main special">
 								<header class="major">
-									<h2>Congue imperdiet</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+									<h2>Register</h2>
+									<p>
+										When food is deliveried quickly and neatly, It warms the soul.
+										Fast Foodies would say 'Once I have my food, my problems are solved'.</p>
 								</header>
 								<footer class="major">
 									<ul class="actions">
-										<li><a href="{{url('/categories')}}" class="button special">Get Started</a></li>
+										<li><a href="{{url('/register')}}" class="button special">Get Started</a></li>
 										<li><a href="{{url('/how-does-it-work')}}" class="button">Learn More</a></li>
 									</ul>
 								</footer>
@@ -145,7 +152,12 @@
 					<footer id="footer">
 						<section>
 							<h2>Aliquam sed mauris</h2>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
+							<p>
+								Fast Foodie is Atlanta's very own local online food delivery service.
+								We pride ourselves to instill the best quality of delivery.
+								Our customers love our service for the time it helps them save, as well as for our high standard of customer service. We have a professional support team that is dedicated to help you in any situation that you're in. A great way to explore new restaurants, and know the restaurants that people love to eat at. When it comes to working on the job, and you don't have the time to leave for lunch. Coming home from a long day of work, and completely forgot to stock up on groceries. 
+								Have a piece of mind knowing that it's been handled, and it's on the way.
+							</p>
 							<ul class="actions">
 								<li><a href="generic.html" class="button">Learn More</a></li>
 							</ul>
@@ -164,8 +176,6 @@
 								<li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
 								<li><a href="#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
 								<li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon fa-dribbble alt"><span class="label">Dribbble</span></a></li>
 							</ul>
 						</section>
 						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
