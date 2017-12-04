@@ -151,19 +151,19 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<h2>Aliquam sed mauris</h2>
+							<h2>Who We Are</h2>
 							<p>
 								Fast Foodie is Atlanta's very own local online food delivery service.
 								We pride ourselves to instill the best quality of delivery.
-								Our customers love our service for the time it helps them save, as well as for our high standard of customer service. We have a professional support team that is dedicated to help you in any situation that you're in. A great way to explore new restaurants, and know the restaurants that people love to eat at. When it comes to working on the job, and you don't have the time to leave for lunch. Coming home from a long day of work, and completely forgot to stock up on groceries. 
+								Our customers love our service for the time it helps them save, as well as for our high standard of customer service. We have a professional support team that is dedicated to help you in any situation that you're in. A great way to explore new restaurants, and know the restaurants that people love to eat at. When it comes to working on the job, and you don't have the time to leave for lunch. Coming home from a long day of work, and completely forgot to stock up on groceries.
 								Have a piece of mind knowing that it's been handled, and it's on the way.
 							</p>
 							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn More</a></li>
+								<li><a href="{{url('/how-does-it-work')}}" class="button">Learn More</a></li>
 							</ul>
 						</section>
 						<section>
-							<h2>Etiam feugiat</h2>
+							<h2>Contact Us</h2>
 							<dl class="alt">
 								<dt>Address</dt>
 								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
