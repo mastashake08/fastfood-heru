@@ -30,9 +30,11 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="#intro" class="active">Introduction</a></li>
-							<li><a href="#first">First Section</a></li>
-							<li><a href="#second">Second Section</a></li>
+							<li><a href="#first">Guidelines</a></li>
+							<li><a href="#second">Connectivity</a></li>
 							<li><a href="#cta">Get Started</a></li>
+							<li><a href="{{url('/login')}}">Login</a></li>
+							<li><a href="{{url('/register')}}">Register</a></li>
 						</ul>
 					</nav>
 
@@ -65,26 +67,21 @@
 								</header>
 								<ul class="features">
 									<li>
-										<span class="icon major style1 fa-code"></span>
-										<h3>Ipsum consequat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+										<span class="icon major style1 fa fa-question-circle"></span>
+										<h3>Help Center</h3>
+										<p><a href="{{url('/how-does-it-work')}}" class="button">Learn More</a></p>
 									</li>
 									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3>Amed sed feugiat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+										<span class="icon major style3 fa fa-user-secret"></span>
+										<h3>Privacy Policy</h3>
+										<p><a href="{{url('/privacy')}}" class="button">Learn More</a></p>
 									</li>
 									<li>
-										<span class="icon major style5 fa-diamond"></span>
-										<h3>Dolor nullam</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+										<span class="icon major style5 fa fa-list-alt"></span>
+										<h3>Terms Of Service</h3>
+										<p><a href="{{url('/terms')}}" class="button">Learn More</a></p>
 									</li>
 								</ul>
-								<footer class="major">
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
 							</section>
 
 						<!-- Second Section -->
@@ -168,14 +165,14 @@
 								<dt>Address</dt>
 								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
 								<dt>Phone</dt>
-								<dd>(000) 000-0000 x 0000</dd>
+								<dd>(407) 778-6489</dd>
 								<dt>Email</dt>
-								<dd><a href="#">information@untitled.tld</a></dd>
+								<dd><a href="mailto:support@fastfoodie.biz">support@fastfoodie.biz</a></dd>
 							</dl>
 							<ul class="icons">
-								<li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
+								<li><a href="https://twitter.com/fastfoodiebiz" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/FastFoodie.biz" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/fastfoodiebiz/" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
 							</ul>
 						</section>
 						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
