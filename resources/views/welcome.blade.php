@@ -22,7 +22,7 @@
 				<!-- Header -->
 					<header id="header" class="alt">
 						<span class="logo"><img src="img/logo.png" alt="" /></span>
-						<h1>{{env('APP_NAME')}}</h1>
+
 						<p>Fast For A Foodie💯</a>.</p>
 					</header>
 
