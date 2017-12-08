@@ -163,9 +163,13 @@
 							<h2>Contact Us</h2>
 							<dl class="alt">
 								<dt>Address</dt>
-								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+
+
+
+
+								<dd>1755 North Brown Road Suite 200 &bull; Lawrenceville, GA 30043&bull; USA</dd>
 								<dt>Phone</dt>
-								<dd>(407) 778-6489</dd>
+								<dd>(678) 690-5339</dd>
 								<dt>Email</dt>
 								<dd><a href="mailto:support@fastfoodie.biz">support@fastfoodie.biz</a></dd>
 							</dl>
