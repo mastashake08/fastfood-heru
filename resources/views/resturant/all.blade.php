@@ -10,7 +10,7 @@
                 <div class="panel-heading">Restaurants</div>
                 <div class="panel-body ">
                   <div class="text-center">
-                    <form method="post" action="{{url('/search/resturant')}}">
+                    <form method="get" action="{{url('/search/resturant')}}">
                     <input type="text" class="form-control" name="name" placeholder="Search Restaurants">
                     <a href="{{url('/about')}}" class="btn btn-default">Search</a>
                   </form>
