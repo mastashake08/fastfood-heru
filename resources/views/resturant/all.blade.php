@@ -10,6 +10,10 @@
                 <div class="panel-heading">Restaurants</div>
                 <div class="panel-body ">
                   <div class="text-center">
+                    <form method="post" action="{{url('/search/resturant')}}">
+                    <input type="text" class="form-control" name="name" placeholder="Search Restaurants">
+                    <a href="{{url('/about')}}" class="btn btn-default">Search</a>
+                  </form>
                     @foreach($resturants as $resturanty)
                     <h2>{{$resturanty->name}}</h2>
                     <a href="{{url('/resturant/'.$resturanty->id)}}"><img src="{{$resturanty->photo}}" width="250" height="250" class="img img-rounded"/></a>

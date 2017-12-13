@@ -24,6 +24,8 @@
 						<span class="logo"><img src="img/logo.png" alt="" /></span>
 
 						<p>Fast For A Foodie💯</a>.</p>
+
+						<a class="button" href="{{route('login')}}">Login/Register</a>
 					</header>
 
 				<!-- Nav -->
@@ -33,9 +35,9 @@
 							<li><a href="#first">Guidelines</a></li>
 							<li><a href="#second">Connectivity</a></li>
 							<li><a href="#cta">Get Started</a></li>
-							<li><a href="{{url('/login')}}">Login</a></li>
-							<li><a href="{{url('/register')}}">Register</a></li>
+
 						</ul>
+
 					</nav>
 
 				<!-- Main -->
@@ -52,8 +54,13 @@
                       At Fast Foodie, we pride ourselves to instill the best quality of delivery. When it comes to working at the job and you don’t have the time to leave to get lunch. Or just coming home from a long day from work, and completely forgot to stock up on groceries.
                       Why not have us do the hard work, and have a piece of mind that waiting in line to get what you need will be a thing of the past.
                     </p>
-										<ul class="actions">
-											<li><a href="{{url('/about')}}" class="button">Learn More</a></li>
+										<ul class="actions 6u 12u$(xsmall)">
+											<li>
+												<form method="get" action="{{url('/search/restaurant')}}">
+												<input type="text" name="name" placeholder="Search Restaurants">
+												<a href="{{url('/about')}}" class="button">Search</a>
+											</form>
+											</li>
 										</ul>
 									</div>
 									<span class="image"><img src="img/logo-spoon.png" alt="" /></span>
