@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@section('background','/img/terms.png')
+@section('background','/img/contact.jpeg')
 
 <div class="container">
     <div class="row">

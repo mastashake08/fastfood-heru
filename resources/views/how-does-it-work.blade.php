@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@section('background','/img/spoon.jpg')
+@section('background','/img/how-does-it-work.jpg')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

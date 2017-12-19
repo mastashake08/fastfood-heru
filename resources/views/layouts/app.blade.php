@@ -22,13 +22,11 @@
 </head>
 <body>
 <style>
-    html, body {
+     body {
         background-image: url(@yield('background'));
         background-size: cover;
     }
-    .navbar-fixed-bottom, .navbar-default {
-    background: none;
-    }
+  
     .panel-transparent {
       background:none;
     }
