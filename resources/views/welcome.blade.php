@@ -58,7 +58,7 @@
 											<li>
 												<form method="get" action="{{url('/search/restaurant')}}">
 												<input type="text" name="name" placeholder="Search Restaurants">
-												<a href="{{url('/about')}}" class="button">Search</a>
+												<button class="button">Search</button>
 											</form>
 											</li>
 										</ul>
