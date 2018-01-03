@@ -12,7 +12,7 @@
                   <div class="text-center">
                     <form method="get" action="{{url('/search/resturant')}}">
                     <input type="text" class="form-control" name="name" placeholder="Search Restaurants">
-                    <a href="{{url('/about')}}" class="btn btn-default">Search</a>
+                    <button class="btn btn-default">Search</button>
                   </form>
                     @foreach($resturants as $resturanty)
                     <h2>{{$resturanty->name}}</h2>
