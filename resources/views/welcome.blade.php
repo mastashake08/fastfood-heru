@@ -56,7 +56,7 @@
                     </p>
 										<ul class="actions 6u 12u$(xsmall)">
 											<li>
-												<form method="get" action="{{url('/search/restaurant')}}">
+												<form method="get" action="{{url('/search/resturant')}}">
 												<input type="text" name="name" placeholder="Search Restaurants">
 												<button class="button">Search</button>
 											</form>
