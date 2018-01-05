@@ -179,7 +179,8 @@ class ResturantController extends Controller
     }
 
     public function search(Request $request){
-      $resturants = Resturant::where('name','like','%'.$request->name.'%')->orderBy('name','asc')->paginate(10);
+      $name = e($request->name);
+      $resturants = Resturant::where('name','like','%'.$name.'%')->orderBy('name','asc')->paginate(10);
       $with = [
         'resturants' => $resturants
       ];
