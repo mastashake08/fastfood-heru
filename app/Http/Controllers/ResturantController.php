@@ -180,7 +180,7 @@ class ResturantController extends Controller
 
     public function search(Request $request){
       $name = $request->name;
-      dd($name);
+      //dd($name);
       $resturants = Resturant::where('name','like',"%{$name}%")->orderBy('name','asc')->paginate(10);
       $with = [
         'resturants' => $resturants
