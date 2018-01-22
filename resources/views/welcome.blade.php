@@ -62,7 +62,7 @@
 												<br>
 
 												@foreach(\App\FoodCategory::all() as $category)
-												<a href="{{url('/category/'.$category->id)}}" class="button">{{$category->name}}</a>
+												<li><a href="{{url('/category/'.$category->id)}}">{{$category->name}}</a></li>
 												@endforeach
 											</form>
 											</li>
