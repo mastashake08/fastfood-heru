@@ -35,7 +35,9 @@
 							<li><a href="#first">Guidelines</a></li>
 							<li><a href="#second">Connectivity</a></li>
 							<li><a href="#cta">Get Started</a></li>
-
+							@foreach(\App\FoodCategory::all() as $category)
+							<li><a href="{{url('/categories/'.$category->category)}}">{{$category->category}}</a></li>
+							@endforeach
 						</ul>
 
 					</nav>
