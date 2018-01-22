@@ -35,9 +35,6 @@
 							<li><a href="#first">Guidelines</a></li>
 							<li><a href="#second">Connectivity</a></li>
 							<li><a href="#cta">Get Started</a></li>
-							@foreach(\App\FoodCategory::all() as $category)
-							<li><a href="{{url('/category/'.$category->id)}}">{{$category->name}}</a></li>
-							@endforeach
 						</ul>
 
 					</nav>
@@ -60,7 +57,13 @@
 											<li>
 												<form method="get" action="{{url('/search/resturant')}}">
 												<input type="text" name="name" placeholder="Search Restaurants">
+												<br>
 												<button class="button">Search</button>
+												<br>
+
+												@foreach(\App\FoodCategory::all() as $category)
+												<a href="{{url('/category/'.$category->id)}}" class="button">{{$category->name}}</a>
+												@endforeach
 											</form>
 											</li>
 										</ul>
